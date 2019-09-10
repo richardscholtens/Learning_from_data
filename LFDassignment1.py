@@ -14,6 +14,13 @@ from sklearn.metrics import accuracy_score
 
 # COMMENT THIS
 def read_corpus(corpus_file, use_sentiment):
+    """This function opens a file and retrieves all lines in this file.
+    It then removes all whitespace from this line and then creates a list with 
+    where the first item is genre, the second item is the sentiment, and the
+    third is the id number of the review. Everything after this are the words
+    of the review. To retrieve sentiment the variable use_sentiment must be True.
+    To use genre's the variable use_sentiment must be False."""
+
     documents = []
     labels = []
     with open(corpus_file, encoding='utf-8') as f:
