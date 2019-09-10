@@ -52,7 +52,7 @@ def identity(x):
 # The same goes for the labels.
 
 
-X, Y = read_corpus('trainset.txt', use_sentiment=True)
+X, Y = read_corpus('trainset.txt', use_sentiment=False)
 split_point = int(0.75*len(X))
 Xtrain = X[:split_point]
 Ytrain = Y[:split_point]
@@ -99,3 +99,8 @@ Yguess = classifier.predict(Xtest)
 # Here the classifier compares the gold standard labels with the
 # predict labels retrieved from the step before.
 print(accuracy_score(Ytest, Yguess))
+#print(classifier.class_log_prior_)
+
+print(classifier. predict_proba(X))
+#print(classifier.named_steps['cls'].feature_log_prob_)
+#print(classifier.named_steps['cls'].class_log_prior_)
