@@ -57,6 +57,14 @@ Ytrain = Y[:split_point]
 Xtest = X[split_point:]
 Ytest = Y[split_point:]
 
+
+
+# A TF_IDF vectorizer creates a score scale based on frequency of input
+# within different documents. Every word will have a different score for
+# a different document. This score can be used as feature for the classifier. 
+# The classifier learns from these features in order to make calculated predictions.
+
+
 # let's use the TF-IDF vectorizer
 tfidf = True
 
@@ -65,6 +73,11 @@ tfidf = True
 if tfidf:
     vec = TfidfVectorizer(preprocessor = identity,
                           tokenizer = identity)
+
+# The CountVectorizer creates a score scale based on frequency of input only
+# This is can be used to create a baseline to see how other machine learning
+# techniques compare.
+
 else:
     vec = CountVectorizer(preprocessor = identity,
                           tokenizer = identity)
@@ -75,11 +88,15 @@ classifier = Pipeline( [('vec', vec),
 
 
 # COMMENT THIS
+
+# Here the classifier learns which feautures are linked to what label.
 classifier.fit(Xtrain, Ytrain)
 
 # COMMENT THIS  
+# Here the classifier predicts the label of features based on the learned process in the step before.
 Yguess = classifier.predict(Xtest)
 
 # COMMENT THIS
+# Here the classifier compares the gold standard labels with the predict labels retrieved from the step before.
 print(accuracy_score(Ytest, Yguess))
 
