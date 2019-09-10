@@ -44,6 +44,12 @@ def identity(x):
     return x
 
 # COMMENT THIS
+# The program reads a textfile and retrieves the data
+# and the labels linked to the data. After this it
+# splits the data in training data and test data.
+# The same goes for the labels.
+
+
 X, Y = read_corpus('trainset.txt', use_sentiment=True)
 split_point = int(0.75*len(X))
 Xtrain = X[:split_point]
