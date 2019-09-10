@@ -19,7 +19,8 @@ def read_corpus(corpus_file, use_sentiment):
     where the first item is genre, the second item is the sentiment, and the
     third is the id number of the review. Everything after this are the words
     of the review. To retrieve sentiment the variable use_sentiment must be True.
-    To use genre's the variable use_sentiment must be False."""
+    To use genre's the variable use_sentiment must be False. One of these
+    variables will be used as labels. It then returns the documents and labels. """
 
     documents = []
     labels = []
